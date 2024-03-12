@@ -1,8 +1,10 @@
 import Link from "next/link";
 
 import MaxWidthWrapper from "@/app/components/MaxWidthWrapper";
-import { Icons } from "@/app/components/Icons";
+// import { Icons } from "@/app/components/Icons";
 import NavItems from "@/app/components/NavItems";
+import Image from "next/image";
+import eCommerceLogo from "../../public/E-Shop.jpg";
 
 const Navbar = () => {
   return (
@@ -15,7 +17,12 @@ const Navbar = () => {
 
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
-                  <Icons.logo className="h-10 w-10" />
+                  {/* <Icons.logo className="h-10 w-10" /> */}
+                  <Image
+                    src={eCommerceLogo}
+                    alt="eCommerce logo"
+                    className="h-16 w-16"
+                  />
                 </Link>
               </div>
 
