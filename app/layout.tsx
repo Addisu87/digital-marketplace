@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const NunitoSans = Nunito_Sans({
+  weight: ["300", "400", "500", "700", "800", "900"],
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Digital Marketplace",
@@ -20,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={cn("relative h-full font-sans antialiased", inter.className)}
+        className={cn(
+          "relative h-full font-sans antialiased",
+          NunitoSans.className
+        )}
       >
         <main className="relative flex flex-col min-h-screen">
           <div className="flex-grow flex-1">{children}</div>
