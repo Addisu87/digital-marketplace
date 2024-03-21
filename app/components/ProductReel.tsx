@@ -31,11 +31,11 @@ const ProductReel = (props: ProductReelProps) => {
 
 	const products = queryResults?.pages.flatMap((page) => page.items);
 
-	let prod: (Product | null)[] = [];
+	let prods: (Product | null)[] = [];
 	if (products && products.length) {
-		prod = products;
+		prods = products;
 	} else if (isLoading) {
-		prod = new Array<null>(query.limit ?? FALLBACK_LIMIT).fill(null);
+		prods = new Array<null>(query.limit ?? FALLBACK_LIMIT).fill(null);
 	}
 
 	return (
@@ -68,8 +68,8 @@ const ProductReel = (props: ProductReelProps) => {
 			<div className='relative'>
 				<div className='mt-6 flex items-center justify-center'>
 					<div className='w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8'>
-						{prod.map((prods, i) => (
-							<ProductListing />
+						{prods.map((product, i) => (
+							<ProductListing key={product.id} product={product} index={i} />
 						))}
 					</div>
 				</div>
