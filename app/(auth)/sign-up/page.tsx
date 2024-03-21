@@ -118,7 +118,7 @@ const Page = () => {
 										</p>
 									)}
 								</div>
-								<Button>Sign up</Button>
+								<Button disabled={isLoading}>Sign up</Button>
 							</div>
 						</form>
 					</div>
