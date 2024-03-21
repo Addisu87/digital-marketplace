@@ -11,6 +11,7 @@ import {
 	DropdownMenuTrigger,
 } from './ui/dropdown-menu';
 import { useAuth } from '@/hooks/use-auth';
+import { User } from '@/payload-types';
 
 const UserAccountNav = ({ user }: { user: User }) => {
 	const { signOut } = useAuth();

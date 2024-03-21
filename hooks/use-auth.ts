@@ -1,5 +1,7 @@
-import { TRPCError } from '@trpc/server';
+import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+
+import { TRPCError } from '@trpc/server';
 
 export const useAuth = () => {
 	const router = useRouter();
