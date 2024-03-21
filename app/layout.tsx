@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Nunito_Sans } from 'next/font/google';
-import { cn } from '@/lib/utils';
 import { Toaster } from 'sonner';
+
+import { cn } from '@/lib/utils';
 
 import './globals.css';
 import Navbar from './components/Navbar';
