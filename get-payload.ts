@@ -5,7 +5,7 @@ import payload, { Payload } from 'payload';
 import nodemailer from 'nodemailer';
 
 dotenv.config({
-	path: path.resolve(__dirname, '../.env'),
+	path: path.resolve(__dirname, './.env'),
 });
 
 const transporter = nodemailer.createTransport({
@@ -47,7 +47,7 @@ export const getPayloadClient = async ({
 			email: {
 				transport: transporter,
 				fromAddress: 'addisuhaile87@gmail.com',
-				fromName: 'DigitalMarketplace',
+				fromName: 'DigitalMarketPlace',
 			},
 			secret: process.env.PAYLOAD_SECRET,
 			local: initOptions?.express ? false : true,

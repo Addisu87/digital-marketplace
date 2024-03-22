@@ -7,7 +7,7 @@ import NavItems from '@/app/components/NavItems';
 import { getServerSideUser } from '@/lib/payload-utils';
 import Cart from './Cart';
 import { buttonVariants } from './ui/button';
-import eCommerceLogo from '../../public/E-Shop.jpg';
+import LotusLogo from '../../public/Lotus-Filter-Logo.png';
 import UserAccountNav from './UserAccountNav';
 
 const Navbar = async () => {
@@ -26,7 +26,7 @@ const Navbar = async () => {
 								<Link href='/'>
 									{/* <Icons.logo className="h-10 w-10" /> */}
 									<Image
-										src={eCommerceLogo}
+										src={LotusLogo}
 										alt='eCommerce logo'
 										className='h-16 w-16'
 									/>

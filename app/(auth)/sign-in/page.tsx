@@ -13,12 +13,13 @@ import { cn } from '@/lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import LotusLogo from '@/public/Lotus-Filter-Logo.png';
+
 import {
 	AuthCredentialValidator,
 	TAuthCredentialsValidator,
 } from '@/lib/validators/account-credentials-validators';
 import { trpc } from '@/trpc/client';
-import eCommerceLogo from '../../public/E-Shop.jpg';
 
 const Page = () => {
 	const searchParams = useSearchParams();
@@ -76,11 +77,7 @@ const Page = () => {
 				<div className='mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]'>
 					<div className='flex flex-col items-center  text-center space-y-2'>
 						{/* <Icons.logo className='h-20 w-20' /> */}
-						<Image
-							src={eCommerceLogo}
-							alt='eCommerce logo'
-							className='h-16 w-16'
-						/>
+						<Image src={LotusLogo} alt='eCommerce logo' className='h-16 w-16' />
 						<h1 className='text-2xl font-bold'>
 							Sign in to your {isSeller ? 'seller' : ''} account
 						</h1>
