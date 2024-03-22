@@ -1,14 +1,13 @@
 import dotenv from 'dotenv';
 import path from 'path';
-import nodemailer from 'nodemailer';
 import type { InitOptions } from 'payload/config';
 import payload, { Payload } from 'payload';
+import nodemailer from 'nodemailer';
 
 dotenv.config({
-	path: path.resolve(__dirname, './.env'),
+	path: path.resolve(__dirname, '../.env'),
 });
 
-// to send verification email
 const transporter = nodemailer.createTransport({
 	host: 'smtp.resend.com',
 	secure: true,
@@ -48,19 +47,19 @@ export const getPayloadClient = async ({
 			email: {
 				transport: transporter,
 				fromAddress: 'addisuhaile87@gmail.com',
-				fromName: 'DigitalMarketing',
+				fromName: 'DigitalMarketplace',
 			},
 			secret: process.env.PAYLOAD_SECRET,
 			local: initOptions?.express ? false : true,
-			...cached(initOptions || {}),
+			...(initOptions || {}),
 		});
 	}
 
 	try {
 		cached.client = await cached.promise;
-	} catch (error: unknown) {
+	} catch (e: unknown) {
 		cached.promise = null;
-		throw error;
+		throw e;
 	}
 
 	return cached.client;

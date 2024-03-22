@@ -1,12 +1,9 @@
-import { User } from '@/payload-types';
-
-import { Access } from 'payload/config';
-import { BeforeChangeHook } from 'payload/dist/globals/config/types';
-import { CollectionConfig } from 'payload/types';
+import { User } from '../payload-types';
+import { BeforeChangeHook } from 'payload/dist/collections/config/types';
+import { Access, CollectionConfig } from 'payload/types';
 
 const addUser: BeforeChangeHook = ({ req, data }) => {
 	const user = req.user as User | null;
-	``;
 	return { ...data, user: user?.id };
 };
 
@@ -77,7 +74,7 @@ export const ProductFiles: CollectionConfig = {
 	upload: {
 		staticURL: '/product_files',
 		staticDir: 'product_files',
-		mimeTypes: ['images/*', 'font/*', 'application/postscript'],
+		mimeTypes: ['image/*', 'font/*', 'application/postscript'],
 	},
 	fields: [
 		{
