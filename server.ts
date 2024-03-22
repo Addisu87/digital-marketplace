@@ -1,10 +1,10 @@
 import express from 'express';
 import * as trpcExpress from '@trpc/server/adapters/express';
 
-import { inferAsyncReturnType } from '@trpc/server';
 import { getPayloadClient } from './get-payload';
 import { nextApp, nextHandler } from './next-utils';
 import { appRouter } from './trpc';
+import { inferAsyncReturnType } from '@trpc/server';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;

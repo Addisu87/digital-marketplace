@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { cn, formatPrice } from '@/lib/utils';
 import { PRODUCT_CATEGORIES } from '@/helpers';
 import ImageSlider from './ImageSlider';
+import { Product } from '@/payload-types';
 
 interface ProductListingProps {
 	product: Product | null;

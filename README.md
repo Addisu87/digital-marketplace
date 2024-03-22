@@ -2,6 +2,13 @@
 
 - Digital marketplace
 
+## Get Started
+
+To get started with this project, run
+
+(gti clone https://github.com/Addisu87/digital-marketplace.git)
+and copy the .env.example variables into a separate .env file, fill them out & and that's all you need to get started!
+
 ## Getting Started
 
 First, run the development server:
@@ -14,6 +21,12 @@ yarn dev
 pnpm dev
 # or
 bun dev
+```
+
+## Generate types
+
+```bash
+yarn generate:types
 ```
 
 ## Features
@@ -30,13 +43,6 @@ bun dev
 ✉️ Beautiful emails for signing up and after purchase
 ✅ Admins can verify products to ensure high quality
 ⌨️ 100% written in TypeScript
-
-## Get Started
-
-To get started with this project, run
-
-(gti clone https://github.com/Addisu87/digital-marketplace.git)
-and copy the .env.example variables into a separate .env file, fill them out & and that's all you need to get started!
 
 ## Deploy on Vercel
 

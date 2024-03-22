@@ -1,10 +1,12 @@
 import { User } from '@/payload-types';
-import { BeforeChangeHook } from 'payload/dist/globals/config/types';
-import { CollectionConfig } from '../payload/types';
+
 import { Access } from 'payload/config';
+import { BeforeChangeHook } from 'payload/dist/globals/config/types';
+import { CollectionConfig } from 'payload/types';
 
 const addUser: BeforeChangeHook = ({ req, data }) => {
 	const user = req.user as User | null;
+	``;
 	return { ...data, user: user?.id };
 };
 
@@ -41,7 +43,7 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
 			return order.products.map((product) => {
 				if (typeof product === 'string')
 					return req.payload.logger.error(
-						'Search depth not sufficent to find purchased file IDs',
+						'Search depth not sufficient to find purchased file IDs',
 					);
 
 				return typeof product.product_files === 'string'
