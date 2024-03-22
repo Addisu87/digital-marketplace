@@ -1,15 +1,15 @@
+import dotenv from 'dotenv';
 import path from 'path';
 import { buildConfig } from 'payload/config';
-import dotenv from 'dotenv';
 
-import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { webpackBundler } from '@payloadcms/bundler-webpack';
+import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { slateEditor } from '@payloadcms/richtext-slate';
-import { Users } from '@/collections/Users';
+import { Users } from './collections/Users';
 import { Products } from './collections/Products/Products';
 import { Media } from './collections/Media';
-import { ProductFiles } from './collections/ProductFile';
 import { Orders } from './collections/Orders';
+import { ProductFiles } from './collections/ProductFile';
 
 dotenv.config({
 	path: path.resolve(__dirname, './.env'),
@@ -23,9 +23,9 @@ export default buildConfig({
 	},
 	admin: {
 		user: 'users',
-		bundler: webpackBundler(), 
+		bundler: webpackBundler(),
 		meta: {
-			titleSuffix: '- DigitalMarketplace',
+			titleSuffix: '- DigitalMarketPlace',
 			favicon: '/favicon.ico',
 			ogImage: '/thumbnail.jpg',
 		},
