@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ShoppingCart } from 'lucide-react';
@@ -21,6 +22,7 @@ import { ScrollArea } from './ui/scroll-area';
 import CartItem from './CartItem';
 
 const Cart = () => {
+	const [isMounted, setIsMounted] = useState<boolean>(false);
 	const { items } = useCart();
 	const itemCount = items.length;
 
@@ -30,6 +32,10 @@ const Cart = () => {
 	);
 	const fee = 1;
 
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
 	return (
 		<Sheet>
 			<SheetTrigger className='group -m-2 flex items-center p-2'>
@@ -38,7 +44,7 @@ const Cart = () => {
 					className='h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500'
 				/>
 				<span className='ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800'>
-					{itemCount}
+					{isMounted ? itemCount : 0}
 				</span>
 			</SheetTrigger>
 			<SheetContent className='w-full flex flex-col pr-0 sm:max-w-lg'>

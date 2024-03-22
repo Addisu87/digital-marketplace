@@ -21,6 +21,7 @@ const BREADCRUMBS = [
 	{ id: 1, name: 'Products', href: '/products' },
 ];
 
+// Product detail page
 const page = async ({ params }: PageProps) => {
 	const { productId } = params;
 	const payload = await getPayloadClient();
@@ -124,7 +125,7 @@ const page = async ({ params }: PageProps) => {
 						</div>
 					</div>
 					{/* Add to cart */}
-					<div className='mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start'>
+					<div className='mt-10 lg:col-start-1 lg:row-span-2 lg:max-w-lg lg:self-start'>
 						<div className=''>
 							<div className='mt-10'>
 								<AddToCartButton product={product} />

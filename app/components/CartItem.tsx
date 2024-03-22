@@ -4,6 +4,7 @@ import { ImageIcon, X } from 'lucide-react';
 import { Product } from '@/payload-types';
 import { PRODUCT_CATEGORIES } from '@/helpers';
 import { useCart } from '@/hooks/use-cart';
+import { formatPrice } from '@/lib/utils';
 
 const CartItem = ({ product }: { product: Product }) => {
 	const { image } = product.images[0];
@@ -46,11 +47,17 @@ const CartItem = ({ product }: { product: Product }) => {
 
 						<div className='mt-4 text-xs text-muted-foreground'>
 							<button onClick={() => removeItem(product.id)}>
-								<X className='w-3 h-4' /> 
+								<X className='w-3 h-4' />
 								Remove
 							</button>
 						</div>
 					</div>
+				</div>
+
+				<div className='flex flex-col space-y-1 font-medium'>
+					<span className='mt-auto line-clamp-1 text-sm'>
+						{formatPrice(product.price)}
+					</span>
 				</div>
 			</div>
 		</div>
