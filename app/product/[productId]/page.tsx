@@ -118,15 +118,16 @@ const page = async ({ params }: PageProps) => {
 						</section>
 					</div>
 
-					{/* Product Images */}
-					<div className='mt-10 lg:col-start-2 lg:row-start-2 lg:mt-0 lg:self-center'>
+					{/* Product images */}
+					<div className='mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center'>
 						<div className='aspect-square rounded-lg'>
 							<ImageSlider urls={validUrls} />
 						</div>
 					</div>
-					{/* Add to cart */}
-					<div className='mt-10 lg:col-start-1 lg:row-span-2 lg:max-w-lg lg:self-start'>
-						<div className=''>
+
+					{/* add to cart part */}
+					<div className='mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start'>
+						<div>
 							<div className='mt-10'>
 								<AddToCartButton product={product} />
 							</div>

@@ -42,8 +42,8 @@ export const PRODUCT_CATEGORIES = [
 		],
 	},
 	{
-		label: 'FilterSet',
-		value: 'icons' as const,
+		label: 'FilterSets',
+		value: 'filter_sets' as const,
 		featured: [
 			{
 				name: 'New Arrivals',
