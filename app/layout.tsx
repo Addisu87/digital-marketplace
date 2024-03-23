@@ -4,7 +4,7 @@ import { Toaster } from 'sonner';
 import { cn, constructMetadata } from '@/lib/utils';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Providers from './components/providers/Providers';
+import Providers from './components/Providers';
 
 import './globals.css';
 
