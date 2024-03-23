@@ -1,5 +1,6 @@
 import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies';
 import { NextRequest } from 'next/server';
+
 import { User } from '../payload-types';
 
 export const getServerSideUser = async (
@@ -11,7 +12,7 @@ export const getServerSideUser = async (
 		`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`,
 		{
 			headers: {
-				Autherization: `JWT ${token}`,
+				Authorization: `JWT ${token}`,
 			},
 		},
 	);

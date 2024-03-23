@@ -36,7 +36,6 @@ export const Users: CollectionConfig = {
 		defaultColumns: ['id'],
 	},
 	fields: [
-		// security
 		{
 			name: 'products',
 			label: 'Products',

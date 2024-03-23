@@ -36,6 +36,7 @@ const CartItem = ({ product }: { product: Product }) => {
 							</div>
 						)}
 					</div>
+
 					<div className='flex flex-col self-start'>
 						<span className='line-clamp-1 text-sm font-medium mb-1'>
 							{product.name}

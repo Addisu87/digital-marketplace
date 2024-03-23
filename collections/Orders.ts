@@ -14,7 +14,7 @@ export const Orders: CollectionConfig = {
 	slug: 'orders',
 	admin: {
 		useAsTitle: 'Your Orders',
-		description: 'A summary of all your orders on Digital Market.',
+		description: 'A summary of all your orders on Digital Market Place.',
 	},
 	access: {
 		create: ({ req }) => req.user.role === 'admin',

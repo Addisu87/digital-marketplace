@@ -21,6 +21,7 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
 		const timer = setTimeout(() => {
 			setIsVisible(true);
 		}, index * 75);
+		return () => clearTimeout(timer);
 	}, [index]);
 
 	if (!product || !isVisible) return <ProductPlaceholder />;

@@ -15,10 +15,10 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/app/components/ui/sheet';
+import { ScrollArea } from './ui/scroll-area';
 import { useCart } from '@/hooks/use-cart';
 import { formatPrice } from '@/lib/utils';
 import CartItem from './CartItem';
-import { ScrollArea } from './ui/scroll-area';
 
 const Cart = () => {
 	const [isMounted, setIsMounted] = useState<boolean>(false);

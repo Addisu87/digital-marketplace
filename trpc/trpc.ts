@@ -1,7 +1,7 @@
 import { PayloadRequest } from 'payload/types';
 
-import { User } from '@/payload-types';
-import { ExpressContext } from '@/server';
+import { User } from '../payload-types';
+import { ExpressContext } from '../server';
 import { TRPCError, initTRPC } from '@trpc/server';
 
 const t = initTRPC.context<ExpressContext>().create();

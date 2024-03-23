@@ -18,7 +18,7 @@ export const stripeWebhookHandler = async (
 	const body = webhookRequest.rawBody;
 	const signature = req.headers['stripe-signature'] || '';
 
-	// validate request actually comes form stripe
+	// validate request actually comes from stripe
 	let event;
 	try {
 		event = stripe.webhooks.constructEvent(
@@ -88,7 +88,7 @@ export const stripeWebhookHandler = async (
 		// send receipt
 		try {
 			const data = await resend.emails.send({
-				from: 'DigitalHippo <hello@joshtriedcoding.com>',
+				from: 'DigitalMarketPlace <addisuhaile87@gmail.com>',
 				to: [user.email],
 				subject: 'Thanks for your order! This is your receipt.',
 				html: ReceiptEmailHtml({

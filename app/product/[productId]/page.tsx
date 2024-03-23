@@ -24,6 +24,7 @@ const BREADCRUMBS = [
 // Product detail page
 const page = async ({ params }: PageProps) => {
 	const { productId } = params;
+
 	const payload = await getPayloadClient();
 
 	const { docs: products } = await payload.find({
@@ -60,7 +61,7 @@ const page = async ({ params }: PageProps) => {
 					<div className='lg:max-w-lg lg:self-end'>
 						<ol className='flex items-center space-x-2'>
 							{BREADCRUMBS.map((breadcrumb, i) => (
-								<li className='' key={breadcrumb.href}>
+								<li key={breadcrumb.href}>
 									<div className='flex items-center text-sm'>
 										<Link
 											href={breadcrumb.href}
@@ -100,7 +101,7 @@ const page = async ({ params }: PageProps) => {
 								</div>
 							</div>
 
-							<div className='mt-4 space-x-6'>
+							<div className='mt-4 space-y-6'>
 								<p className='text-base text-muted-foreground'>
 									{product.description}
 								</p>

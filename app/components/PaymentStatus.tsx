@@ -1,8 +1,9 @@
 'use client';
 
-import { trpc } from '@/trpc/client';
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { trpc } from '@/trpc/client';
 
 interface PaymentStatusProps {
 	orderEmail: string;
