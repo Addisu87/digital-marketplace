@@ -1,17 +1,35 @@
-## Project Description
+# Digital marketplace - A Modern Fullstack E-commerce Marketplace for Digital Products
 
-- Digital marketplace
+Built with the Next.js 14 App router, tRPC, TypeScript, Payload and Tailwind
 
-## Get Started
+![Project Image](https://github.com/Addisu87/digital-marketplace/blob/main/public/thumbnail.png)
 
-To get started with this project, run
+## Features
 
-(gti clone https://github.com/Addisu87/digital-marketplace.git)
-and copy the .env.example variables into a separate .env file, fill them out & and that's all you need to get started!
+- 🛠️ Complete marketplace built from scratch in Next.js 14
+- 💻 Beautiful landing page & product pages included
+- 💳 Full admin dashboard
+- 🛍️ Users can purchase and sell their own products
+- 🛒 Locally persisted shopping cart
+- 🔑 Authentication using Payload
+- 🖥️ Learn how to self-host Next.js
+- 🌟 Clean, modern UI using shadcn-ui
+- ✉️ Beautiful emails for signing up and after purchase
+- ✅ Admins can verify products to ensure high quality
+- ⌨️ 100% written in TypeScript
+- 🎁 ...much more
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, run
+
+```bash
+  git clone https://github.com/Addisu87/digital-marketplace.git
+```
+
+and copy the .env.example variables into a separate .env file, fill them out & and that's all you need to get started!
+
+- Run the development server:
 
 ```bash
 npm run dev
@@ -23,30 +41,18 @@ pnpm dev
 bun dev
 ```
 
-## Generate types
+- Generate types
 
 ```bash
-yarn generate:types
+  yarn generate:types
 ```
-
-## Features
-
-🛠️ Complete marketplace built from scratch in Next.js 14
-💻 Beautiful landing page & product pages included
-🎨 Custom artwork included
-💳 Full admin dashboard
-🛍️ Users can purchase and sell their own products
-🛒 Locally persisted shopping cart
-🔑 Authentication using Payload
-🖥️ Learn how to self-host Next.js
-🌟 Clean, modern UI using shadcn-ui
-✉️ Beautiful emails for signing up and after purchase
-✅ Admins can verify products to ensure high quality
-⌨️ 100% written in TypeScript
 
 ## Deploy on Vercel
 
 ## Acknowledgements
 
-- joschan21
-- Payload CMS
+- Joschan21 and Payload CMS for making this project possible
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
