@@ -1,6 +1,7 @@
-import { Product } from '@/payload-types';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
+
+import { Product } from '../payload-types';
 
 export type CartItem = {
 	product: Product;
