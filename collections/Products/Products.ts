@@ -1,5 +1,5 @@
 import { CollectionConfig } from 'payload/types';
-import { BeforeChangeHook } from 'payload/dist/globals/config/types';
+import { BeforeChangeHook } from 'payload/dist/collections/config/types';
 
 import { PRODUCT_CATEGORIES } from '../../helpers';
 import { Product } from '../../payload-types';
@@ -20,7 +20,7 @@ export const Products: CollectionConfig = {
 	hooks: {
 		beforeChange: [
 			addUser,
-			async () => {
+			async (args) => {
 				if (args.operation === 'create') {
 					const data = args.data as Product;
 

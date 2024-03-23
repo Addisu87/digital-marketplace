@@ -5,10 +5,15 @@ import type Stripe from 'stripe';
 import { webhookRequest } from './server';
 import { getPayloadClient } from './get-payload';
 import { Product } from './payload-types';
+import { stripe } from './lib/stripe';
+import { ReceiptEmailHtml } from './app/components/email/ReceiptEmail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const stripeWebhookHandler = async (req: express.Request) => {
+export const stripeWebhookHandler = async (
+	req: express.Request,
+	res: express.Response,
+) => {
 	const webhookRequest = req as any as webhookRequest;
 	const body = webhookRequest.rawBody;
 	const signature = req.headers['stripe-signature'] || '';
