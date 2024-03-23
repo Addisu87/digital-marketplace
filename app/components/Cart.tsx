@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import { ShoppingCart } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
+import { buttonVariants } from '@/app/components/ui/button';
+import { Separator } from '@/app/components/ui/separator';
 import {
 	Sheet,
 	SheetContent,
@@ -13,28 +15,27 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/app/components/ui/sheet';
-import { Separator } from '@/app/components/ui/separator';
-import { formatPrice } from '@/lib/utils';
-import { buttonVariants } from '@/app/components/ui/button';
-import EmptyCart from '@/public/hippo-empty-cart.png';
 import { useCart } from '@/hooks/use-cart';
-import { ScrollArea } from './ui/scroll-area';
+import { formatPrice } from '@/lib/utils';
 import CartItem from './CartItem';
+import { ScrollArea } from './ui/scroll-area';
 
 const Cart = () => {
 	const [isMounted, setIsMounted] = useState<boolean>(false);
 	const { items } = useCart();
 	const itemCount = items.length;
 
+	// remove dehydration problem
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
 	const cartTotal = items.reduce(
 		(total, { product }) => total + product.price,
 		0,
 	);
-	const fee = 1;
 
-	useEffect(() => {
-		setIsMounted(true);
-	}, []);
+	const fee = 1;
 
 	return (
 		<Sheet>
@@ -62,6 +63,7 @@ const Cart = () => {
 						</div>
 						<div className='space-y-4 pr-6'>
 							<Separator />
+
 							<div className='space-y-1.5 text-sm'>
 								<div className='flex'>
 									<span className='flex-1'>Shipping</span>
@@ -76,6 +78,7 @@ const Cart = () => {
 									<span>{formatPrice(cartTotal + fee)}</span>
 								</div>
 							</div>
+
 							<SheetFooter>
 								<SheetTrigger asChild>
 									<Link
@@ -96,7 +99,7 @@ const Cart = () => {
 							aria-hidden='true'
 							className='relative mb-4 h-60 w-60 text-muted-foreground'
 						>
-							<Image src={EmptyCart} alt='Empty cart' fill />
+							<Image src='/hippo-empty-cart.png' alt='Empty cart' fill />
 						</div>
 						<div className='text-xl font-semibold'>Your cart is empty.</div>
 						<SheetTrigger asChild>

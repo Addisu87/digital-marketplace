@@ -1,25 +1,23 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
+import { ArrowRight, Loader2 } from 'lucide-react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { Button, buttonVariants } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Label } from '@/app/components/ui/label';
 import { cn } from '@/lib/utils';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { toast } from 'sonner';
-
 import LotusLogo from '@/public/Lotus-Filter-Logo.png';
-
+import { trpc } from '@/trpc/client';
 import {
 	AuthCredentialValidator,
 	TAuthCredentialsValidator,
 } from '@/lib/validators/account-credentials-validators';
-import { trpc } from '@/trpc/client';
 
 const Page = () => {
 	const searchParams = useSearchParams();
@@ -51,10 +49,12 @@ const Page = () => {
 
 			if (origin) {
 				router.push(`/${origin}`);
+				return;
 			}
 
 			if (isSeller) {
 				router.push('/sell');
+				return;
 			}
 
 			router.push('/');
@@ -68,6 +68,7 @@ const Page = () => {
 	});
 
 	const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
+		// send data to the server
 		signIn({ email, password });
 	};
 
@@ -97,7 +98,9 @@ const Page = () => {
 						<form onSubmit={handleSubmit(onSubmit)}>
 							<div className='grid gap-2'>
 								<div className='grid gap-1 py-2'>
-									<Label htmlFor='email'>Email</Label>
+									<Label htmlFor='email' className='mb-1'>
+										Email
+									</Label>
 									<Input
 										{...register('email')}
 										type='email'
@@ -113,7 +116,9 @@ const Page = () => {
 									)}
 								</div>
 								<div className='grid gap-1 py-2'>
-									<Label htmlFor='password'>Password</Label>
+									<Label htmlFor='password' className='mb-1'>
+										Password
+									</Label>
 									<Input
 										{...register('password')}
 										type='password'
@@ -128,7 +133,12 @@ const Page = () => {
 										</p>
 									)}
 								</div>
-								<Button>Sign in</Button>
+								<Button disabled={isLoading}>
+									{isLoading && (
+										<Loader2 className='mr-2 h-4 w-4 animate-spin' />
+									)}
+									Sign in
+								</Button>
 							</div>
 						</form>
 

@@ -6,7 +6,7 @@ import { TRPCError } from '@trpc/server';
 import { AuthCredentialValidator } from '../lib/validators/account-credentials-validators';
 
 export const authRouter = router({
-	createPayloadUser: publicProcedure
+	signUp: publicProcedure
 		.input(AuthCredentialValidator)
 		.mutation(async ({ input }) => {
 			const { email, password } = input;
