@@ -49,7 +49,7 @@ export const paymentRouter = router({
 			});
 
 			line_items.push({
-				price: '..............api-key',
+				price: 'price_1OxNBgBnQL13PbUdwWDYMokc',
 				quantity: 1,
 				adjustable_quantity: {
 					enabled: false,
