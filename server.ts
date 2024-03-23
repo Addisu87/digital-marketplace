@@ -1,9 +1,12 @@
-import express from 'express';
 import bodyParser from 'body-parser';
+import express from 'express';
 import { IncomingMessage } from 'http';
+import { parse } from 'url';
+import nextBuild from 'next/dist/build';
 
 import { inferAsyncReturnType } from '@trpc/server';
 import * as trpcExpress from '@trpc/server/adapters/express';
+import { PayloadRequest } from 'payload/types';
 import { getPayloadClient } from './get-payload';
 import { nextApp, nextHandler } from './next-utils';
 import { appRouter } from './trpc';
@@ -40,6 +43,36 @@ const start = async () => {
 			},
 		},
 	});
+
+	// Add security
+	const cartRouter = express.Router();
+
+	cartRouter.use(payload.authenticate);
+
+	cartRouter.get('/', (req, res) => {
+		const request = req as PayloadRequest;
+
+		if (!request.user) return res.redirect('/sign-in?origin=cart');
+
+		const parsedUrl = parse(req.url, true);
+
+		return nextApp.render(req, res, '/cart', parsedUrl.query);
+	});
+
+	app.use('/cart', cartRouter);
+
+	// next build
+	if (process.env.NEXT_BUILD) {
+		app.listen(PORT, async () => {
+			payload.logger.info('Next.js is building for production');
+
+			// @ts-expect-error
+			await nextBuild(path.join(__dirname, '../'));
+
+			// if we are done with build close it
+			process.exit();
+		});
+	}
 
 	app.use(
 		'/api/trpc',

@@ -1,7 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { cookies } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
-import Link from 'next/link';
 
 import { getServerSideUser } from '../../lib/payload-utils';
 import { getPayloadClient } from '../../get-payload';

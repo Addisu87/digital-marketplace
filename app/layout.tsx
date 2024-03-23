@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
 import { Nunito_Sans } from 'next/font/google';
 import { Toaster } from 'sonner';
 
-import { cn } from '@/lib/utils';
-
-import './globals.css';
+import { cn, constructMetadata } from '@/lib/utils';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Providers from './components/providers/Providers';
+
+import './globals.css';
 
 const NunitoSans = Nunito_Sans({
 	weight: ['400', '700'],
@@ -15,10 +15,7 @@ const NunitoSans = Nunito_Sans({
 	display: 'swap',
 });
 
-export const metadata: Metadata = {
-	title: 'Digital Marketplace',
-	description: 'Digital Marketplace',
-};
+export const metadata = constructMetadata();
 
 export default function RootLayout({
 	children,
@@ -37,6 +34,7 @@ export default function RootLayout({
 					<Providers>
 						<Navbar />
 						<div className='flex-grow flex-1'>{children}</div>
+						<Footer />
 					</Providers>
 				</main>
 
