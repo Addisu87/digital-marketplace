@@ -28,7 +28,7 @@ const Navbar = async () => {
 									<Image
 										src={LotusLogo}
 										alt='eCommerce logo'
-										className='h-16 w-16'
+										className='h-10 w-10'
 									/>
 								</Link>
 							</div>

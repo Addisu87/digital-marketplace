@@ -1,15 +1,13 @@
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 
-import { TRPCError } from '@trpc/server';
-
 export const useAuth = () => {
 	const router = useRouter();
 
 	const signOut = async () => {
 		try {
 			const res = await fetch(
-				`${process.env.NEXT_PUBLIC_SERVER_URL}/api/user/logout`,
+				`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/logout`,
 				{
 					method: 'POST',
 					credentials: 'include',
@@ -19,7 +17,7 @@ export const useAuth = () => {
 				},
 			);
 
-			if (!res.ok) throw new TRPCError({ code: 'BAD_REQUEST' });
+			if (!res.ok) throw new Error();
 
 			toast.success('Signed out successfully.');
 
