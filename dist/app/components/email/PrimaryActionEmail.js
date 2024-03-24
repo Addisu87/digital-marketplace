@@ -20,10 +20,10 @@ var EmailTemplate = function (_a) {
         React.createElement(components_1.Preview, null, "The marketplace for high-quality digital goods."),
         React.createElement(components_1.Body, { style: main },
             React.createElement(components_1.Container, { style: container },
-                React.createElement(components_1.Img, { src: "".concat(process.env.NEXT_PUBLIC_SERVER_URL, "/hippo-newsletter-sign-up.png"), width: '150', height: '150', alt: 'DigitalHippo', style: logo }),
+                React.createElement(components_1.Img, { src: "".concat(process.env.NEXT_PUBLIC_SERVER_URL, "/empty-cart.jpg"), width: '150', height: '150', alt: 'DigitalMarketPlace', style: logo }),
                 React.createElement(components_1.Text, { style: paragraph }, "Hi there,"),
                 React.createElement(components_1.Text, { style: paragraph },
-                    "Welcome to DigitalHippo, the marketplace for high quality digital goods. Use the button below to ",
+                    "Welcome to DigitalMarketPlace, the marketplace for high quality digital goods. Use the button below to ",
                     actionLabel,
                     "."),
                 React.createElement(components_1.Section, { style: btnContainer },
@@ -31,7 +31,7 @@ var EmailTemplate = function (_a) {
                 React.createElement(components_1.Text, { style: paragraph },
                     "Best,",
                     React.createElement("br", null),
-                    "The DigitalHippo team"),
+                    "The DigitalMarketPlace team"),
                 React.createElement(components_1.Hr, { style: hr }),
                 React.createElement(components_1.Text, { style: footer }, "If you did not request this email, you can safely ignore it.")))));
 };

@@ -47,7 +47,6 @@ exports.Users = {
         defaultColumns: ['id'],
     },
     fields: [
-        // security
         {
             name: 'products',
             label: 'Products',

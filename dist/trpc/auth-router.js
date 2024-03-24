@@ -43,7 +43,7 @@ var get_payload_1 = require("../get-payload");
 var server_1 = require("@trpc/server");
 var account_credentials_validators_1 = require("../lib/validators/account-credentials-validators");
 exports.authRouter = (0, trpc_1.router)({
-    createPayloadUser: trpc_1.publicProcedure
+    signUp: trpc_1.publicProcedure
         .input(account_credentials_validators_1.AuthCredentialValidator)
         .mutation(function (_a) { return __awaiter(void 0, [_a], void 0, function (_b) {
         var email, password, payload, users;

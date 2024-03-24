@@ -104,16 +104,6 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                     })];
             case 1:
                 payload = _a.sent();
-                cartRouter = express_1.default.Router();
-                cartRouter.use(payload.authenticate);
-                cartRouter.get('/', function (req, res) {
-                    var request = req;
-                    if (!request.user)
-                        return res.redirect('/sign-in?origin=cart');
-                    var parsedUrl = (0, url_1.parse)(req.url, true);
-                    return next_utils_1.nextApp.render(req, res, '/cart', parsedUrl.query);
-                });
-                app.use('/cart', cartRouter);
                 // next build
                 if (process.env.NEXT_BUILD) {
                     app.listen(PORT, function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -133,6 +123,17 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                         });
                     }); });
                 }
+                cartRouter = express_1.default.Router();
+                cartRouter.use(payload.authenticate);
+                cartRouter.get('/', function (req, res) {
+                    var request = req;
+                    if (!request.user)
+                        return res.redirect('/sign-in?origin=cart');
+                    var parsedUrl = (0, url_1.parse)(req.url, true);
+                    var query = parsedUrl.query;
+                    return next_utils_1.nextApp.render(req, res, '/cart', query);
+                });
+                app.use('/cart', cartRouter);
                 app.use('/api/trpc', trpcExpress.createExpressMiddleware({
                     router: trpc_1.appRouter,
                     createContext: createContext,

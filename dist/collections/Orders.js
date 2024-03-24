@@ -15,7 +15,7 @@ exports.Orders = {
     slug: 'orders',
     admin: {
         useAsTitle: 'Your Orders',
-        description: 'A summary of all your orders on Digital Market.',
+        description: 'A summary of all your orders on Digital Market Place.',
     },
     access: {
         create: function (_a) {

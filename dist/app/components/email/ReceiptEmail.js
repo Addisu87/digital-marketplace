@@ -49,7 +49,7 @@ var ReceiptEmail = function (_a) {
             React.createElement(components_1.Container, { className: 'mx-auto py-20 px-0 max-w-4xl' },
                 React.createElement(components_1.Section, { className: 'mb-4' },
                     React.createElement(components_1.Column, null,
-                        React.createElement(components_1.Img, { src: "".concat(process.env.NEXT_PUBLIC_SERVER_URL, "/hippo-email-sent.png"), width: '100', height: '100', alt: 'DigitalHippo' })),
+                        React.createElement(components_1.Img, { src: "".concat(process.env.NEXT_PUBLIC_SERVER_URL, "/hippo-email-sent.png"), width: '100', height: '100', alt: 'DigitalMarketPlace' })),
                     React.createElement(components_1.Column, { className: 'text-right', align: 'right' },
                         React.createElement(components_1.Text, { className: 'text-2xl font-light text-gray-600' }, "Receipt"))),
                 React.createElement(components_1.Section, { className: 'bg-gray-100 rounded-lg text-sm mt-6' },
@@ -104,6 +104,7 @@ var ReceiptEmail = function (_a) {
                 React.createElement(components_1.Text, { className: 'text-center text-sm text-gray-600 mt-4' },
                     "Copyright \u00A9 2023 DigitalHippo Inc. ",
                     React.createElement("br", null),
+                    ' ',
                     React.createElement(components_1.Link, { href: '#' }, "All rights reserved"))))));
 };
 exports.ReceiptEmail = ReceiptEmail;

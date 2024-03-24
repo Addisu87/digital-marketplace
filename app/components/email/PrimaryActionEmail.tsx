@@ -30,7 +30,7 @@ export const EmailTemplate = ({
 			<Body style={main}>
 				<Container style={container}>
 					<Img
-						src={`${process.env.NEXT_PUBLIC_SERVER_URL}/empty-cart.jpg`}
+						src={`${process.env.NEXT_PUBLIC_SERVER_URL}/hippo-newsletter-sign-up.png`}
 						width='150'
 						height='150'
 						alt='DigitalMarketPlace'
@@ -62,7 +62,9 @@ export const EmailTemplate = ({
 };
 
 export const PrimaryActionEmailHtml = (props: EmailTemplateProps) =>
-	render(<EmailTemplate {...props} />, { pretty: true });
+	render(<EmailTemplate {...props} />, {
+		pretty: true,
+	});
 
 const main = {
 	backgroundColor: '#ffffff',
