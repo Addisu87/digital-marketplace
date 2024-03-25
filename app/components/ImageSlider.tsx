@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type SwiperType from 'swiper';
+import { useEffect, useState } from 'react';
 import { Pagination } from 'swiper/modules';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -15,6 +15,7 @@ import { cn } from '@/lib/utils';
 interface ImageSliderProps {
 	urls: string[];
 }
+
 const ImageSlider = ({ urls }: ImageSliderProps) => {
 	const [swiper, setSwiper] = useState<null | SwiperType>(null);
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -26,11 +27,11 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
 
 	useEffect(() => {
 		swiper?.on('slideChange', ({ activeIndex }) => {
-			setActiveIndex(activeIndex),
-				setSlideConfig({
-					isBeginning: activeIndex === 0,
-					isEnd: activeIndex === (urls.length ?? 0) - 1,
-				});
+			setActiveIndex(activeIndex);
+			setSlideConfig({
+				isBeginning: activeIndex === 0,
+				isEnd: activeIndex === (urls.length ?? 0) - 1,
+			});
 		});
 	}, [swiper, urls]);
 
@@ -39,8 +40,8 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
 	const inactiveStyles = 'hidden text-gray-400';
 
 	return (
-		<div className='group-relative bg-zinc-100 aspect-square overflow-hidden rounded-xl'>
-			<div className='absolute z-10 inset-0 transition opacity-0 group-hover:opacity-100'>
+		<div className='group relative bg-zinc-100 aspect-square overflow-hidden rounded-xl'>
+			<div className='absolute z-10 inset-0 opacity-0 group-hover:opacity-100 transition'>
 				<button
 					onClick={(e) => {
 						e.preventDefault();
@@ -74,7 +75,7 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
 			<Swiper
 				pagination={{
 					renderBullet: (_, className) => {
-						return `<span class="rounded-full transition ${className}"></span/>`;
+						return `<span class="rounded-full transition ${className}"></span>`;
 					},
 				}}
 				onSwiper={(swiper) => setSwiper(swiper)}
@@ -90,7 +91,7 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
 							loading='eager'
 							className='-z-10 h-full w-full object-cover object-center'
 							src={url}
-							alt='Product Image'
+							alt='Product image'
 						/>
 					</SwiperSlide>
 				))}
