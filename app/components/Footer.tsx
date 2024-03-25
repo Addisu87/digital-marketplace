@@ -16,7 +16,7 @@ const Footer = () => {
 			<MaxWidthWrapper>
 				<div className='border-t border-gray-200'>
 					{pathToMinimize.includes(pathname) ? null : (
-						<div className='pb-8 pt-16'>
+						<div className='pb-4 pt-8'>
 							<div className='flex justify-center'>
 								<Image
 									src={LotusLogo}
@@ -29,11 +29,11 @@ const Footer = () => {
 
 					{pathToMinimize.includes(pathname) ? null : (
 						<div>
-							<div className='relative flex items-center px-6 py-6 sm:py-8 lg:mt-0'>
+							<div className='relative flex items-center px-4 py-4 sm:py-6 lg:mt-0'>
 								<div className='absolute inset-0 overflow-hidden rounded-lg'>
 									<div
 										arial-hidden='true'
-										className='absolute bg-zinc-50 inset-0 bg-gradient-to-br bg-opacity-90'
+										className='absolute bg-zinc-100 inset-0 bg-gradient-to-br bg-opacity-90'
 									/>
 								</div>
 
@@ -57,7 +57,7 @@ const Footer = () => {
 					)}
 				</div>
 
-				<div className='py-10 md:flex md:items-center md:justify-between'>
+				<div className='py-4 md:flex md:items-center md:justify-between'>
 					<div className='text-center md:text-left'>
 						<p className='text-sm text-muted-foreground'>
 							&copy; {new Date().getFullYear()} All Rights Reserved
