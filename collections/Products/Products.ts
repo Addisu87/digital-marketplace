@@ -1,12 +1,12 @@
-import { Access, CollectionConfig } from 'payload/types';
 import {
 	AfterChangeHook,
 	BeforeChangeHook,
 } from 'payload/dist/collections/config/types';
 
-import { PRODUCT_CATEGORIES } from '../../helpers';
+import { Access, CollectionConfig } from 'payload/types';
 import { Product, User } from '../../payload-types';
 import { stripe } from '../../lib/stripe';
+import { PRODUCT_CATEGORIES } from '../../helpers';
 
 const addUser: BeforeChangeHook<Product> = async ({ req, data }) => {
 	const user = req.user;
@@ -53,13 +53,11 @@ const isAdminOrHasAccess =
 		const user = _user as User | undefined;
 
 		if (!user) return false;
-
 		if (user.role === 'admin') return true;
 
 		const userProductIDs = (user.products || []).reduce<Array<string>>(
 			(acc, product) => {
 				if (!product) return acc;
-
 				if (typeof product === 'string') {
 					acc.push(product);
 				} else {
@@ -130,7 +128,6 @@ export const Products: CollectionConfig = {
 			},
 		],
 	},
-
 	fields: [
 		{
 			name: 'user',
@@ -170,7 +167,7 @@ export const Products: CollectionConfig = {
 		},
 		{
 			name: 'product_files',
-			label: 'Product_file(s)',
+			label: 'Product file(s)',
 			type: 'relationship',
 			required: true,
 			relationTo: 'product_files',
@@ -188,7 +185,7 @@ export const Products: CollectionConfig = {
 			},
 			options: [
 				{
-					label: 'Pending Verification',
+					label: 'Pending verification',
 					value: 'pending',
 				},
 				{

@@ -7,6 +7,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { PRODUCT_CATEGORIES } from '@/helpers';
+import Cart from './Cart';
+import { Separator } from './ui/separator';
 
 const MobileNav = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -122,6 +124,12 @@ const MobileNav = () => {
 								>
 									Sign up
 								</Link>
+							</div>
+
+							<Separator />
+
+							<div className='flow-root'>
+								<Cart />
 							</div>
 						</div>
 					</div>

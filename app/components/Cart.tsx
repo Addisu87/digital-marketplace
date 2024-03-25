@@ -86,7 +86,7 @@ const Cart = () => {
 											className: 'w-full',
 										})}
 									>
-										Checkout
+										Continue to checkout
 									</Link>
 								</SheetTrigger>
 							</SheetFooter>
