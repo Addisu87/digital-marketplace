@@ -1,12 +1,12 @@
 import express from 'express';
-import { Resend } from 'resend';
 import type Stripe from 'stripe';
+import { Resend } from 'resend';
 
-import { webhookRequest } from './server';
+import { stripe } from './lib/stripe';
 import { getPayloadClient } from './get-payload';
 import { Product } from './payload-types';
-import { stripe } from './lib/stripe';
 import { ReceiptEmailHtml } from './app/components/email/ReceiptEmail';
+import { WebhookRequest } from './server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -14,7 +14,7 @@ export const stripeWebhookHandler = async (
 	req: express.Request,
 	res: express.Response,
 ) => {
-	const webhookRequest = req as any as webhookRequest;
+	const webhookRequest = req as any as WebhookRequest;
 	const body = webhookRequest.rawBody;
 	const signature = req.headers['stripe-signature'] || '';
 
@@ -71,7 +71,7 @@ export const stripeWebhookHandler = async (
 
 		const [order] = orders;
 
-		if (!user) return res.status(404).json({ error: 'No such order exists.' });
+		if (!order) return res.status(404).json({ error: 'No such order exists.' });
 
 		await payload.update({
 			collection: 'orders',
