@@ -7,6 +7,7 @@ import { getPayloadClient } from '../get-payload';
 import { stripe } from '../lib/stripe';
 
 export const paymentRouter = router({
+	// for creating a checkout session with Stripe
 	createSession: privateProcedure
 		.input(z.object({ productIds: z.array(z.string()) }))
 		.mutation(async ({ ctx, input }) => {
@@ -17,46 +18,36 @@ export const paymentRouter = router({
 				throw new TRPCError({ code: 'BAD_REQUEST' });
 			}
 
-			const payload = await getPayloadClient();
+			try {
+				const payload = await getPayloadClient();
 
-			const { docs: products } = await payload.find({
-				collection: 'products',
-				where: {
-					id: {
-						in: productIds,
+				const { docs: products } = await payload.find({
+					collection: 'products',
+					where: {
+						id: {
+							in: productIds,
+						},
 					},
-				},
-			});
+				});
 
-			const filteredProducts = products.filter((prod) => Boolean(prod.priceId));
+				const filteredProducts = products.filter((prod) =>
+					Boolean(prod.priceId),
+				);
 
-			const order = await payload.create({
-				collection: 'orders',
-				data: {
-					_isPaid: false,
-					products: filteredProducts.map((prod) => prod.id),
-					user: user.id,
-				},
-			});
+				const order = await payload.create({
+					collection: 'orders',
+					data: {
+						_isPaid: false,
+						products: filteredProducts.map((prod) => prod.id),
+						user: user.id,
+					},
+				});
 
-			const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
-
-			filteredProducts.forEach((product) => {
-				line_items.push({
+				const line_items = filteredProducts.map((product) => ({
 					price: product.priceId!,
 					quantity: 1,
-				});
-			});
+				}));
 
-			line_items.push({
-				price: 'price_1OyCjkBnQL13PbUdOYa84TAx',
-				quantity: 1,
-				adjustable_quantity: {
-					enabled: false,
-				},
-			});
-
-			try {
 				const stripeSession = await stripe.checkout.sessions.create({
 					success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
 					cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
@@ -71,10 +62,12 @@ export const paymentRouter = router({
 
 				return { url: stripeSession.url };
 			} catch (err) {
+				console.error('Error creating checkout session:', err);
 				return { url: null };
 			}
 		}),
 
+	// query is used to check the status of an order
 	pollOrderStatus: privateProcedure
 		.input(z.object({ orderId: z.string() }))
 		.query(async ({ input }) => {
