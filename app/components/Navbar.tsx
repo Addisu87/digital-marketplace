@@ -23,13 +23,11 @@ const Navbar = async () => {
 							<MobileNav />
 
 							<div className='ml-4 flex lg:ml-0'>
-								<Link href='/'>
-									<Image
-										src='/Lotus-Logo'
-										alt='eCommerce logo'
-										className='h-10 w-10'
-									/>
-								</Link>
+								<div className='relative w-10 h-10 text-muted-foreground'>
+									<Link href='/'>
+										<Image src='/Lotus-Logo.png' alt='eCommerce logo' fill />
+									</Link>
+								</div>
 							</div>
 
 							<div className='hidden z-50 lg:ml-8 lg:block lg:self-stretch'>

@@ -76,12 +76,10 @@ const Page = () => {
 		<>
 			<div className='container relative flex flex-col pt-20 items-center justify-center lg:px-0'>
 				<div className='mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]'>
-					<div className='flex flex-col items-center  text-center space-y-2'>
-						<Image
-							src='/Lotus-Logo'
-							alt='eCommerce logo'
-							className='h-16 w-16'
-						/>
+					<div className='flex flex-col items-center text-center space-y-2'>
+						<div className='relative w-16 h-16 text-muted-foreground'>
+							<Image src='/Lotus-Logo.png' alt='eCommerce logo' fill />
+						</div>
 						<h1 className='text-2xl font-bold'>
 							Sign in to your {isSeller ? 'seller' : ''} account
 						</h1>
