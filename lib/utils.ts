@@ -1,6 +1,6 @@
-import { type ClassValue, clsx } from 'clsx';
 import { Metadata } from 'next';
 import { twMerge } from 'tailwind-merge';
+import { type ClassValue, clsx } from 'clsx';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -28,7 +28,7 @@ export function formatPrice(
 export function constructMetadata({
 	title = 'DigitalMarketPlace - the marketplace for digital assets',
 	description = 'DigitalMarketPlace is an open-source marketplace for high-quality digital goods.',
-	image = '/thumbnail.png',
+	image = '/thumbnail.jpg',
 	icons = '/favicon.ico',
 	noIndex = false,
 }: {
