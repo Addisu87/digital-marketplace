@@ -8,7 +8,7 @@ interface PageProps {
 	};
 }
 
-const verifyEmailPage = ({ searchParams }: PageProps) => {
+const VerifyEmailPage = ({ searchParams }: PageProps) => {
 	const token = searchParams.token;
 	const toEmail = searchParams.to;
 
@@ -24,11 +24,12 @@ const verifyEmailPage = ({ searchParams }: PageProps) => {
 						<div className='relative mb-4 h-60 w-60 text-muted-foreground'>
 							<Image
 								src='/hippo-email-sent.png'
-								alt='hippo email sent image'
 								fill
+								alt='hippo email sent image'
 							/>
 						</div>
-						<h3 className='font-semibold text-2xl'> Check your email</h3>
+
+						<h3 className='font-semibold text-2xl'>Check your email</h3>
 
 						{toEmail ? (
 							<p className='text-muted-foreground text-center'>
@@ -47,4 +48,4 @@ const verifyEmailPage = ({ searchParams }: PageProps) => {
 	);
 };
 
-export default verifyEmailPage;
+export default VerifyEmailPage;
