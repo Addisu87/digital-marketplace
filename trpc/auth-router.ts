@@ -1,9 +1,9 @@
 import { z } from 'zod';
 import { TRPCError } from '@trpc/server';
 
-import { AuthCredentialsValidator } from '../lib/validators/account-credentials-validator';
 import { publicProcedure, router } from './trpc';
 import { getPayloadClient } from '../get-payload';
+import { AuthCredentialsValidator } from '../lib/validators/account-credentials-validator';
 
 export const authRouter = router({
 	signUp: publicProcedure
