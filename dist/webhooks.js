@@ -38,8 +38,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stripeWebhookHandler = void 0;
 var resend_1 = require("resend");
-var get_payload_1 = require("./get-payload");
 var stripe_1 = require("./lib/stripe");
+var get_payload_1 = require("./get-payload");
 var ReceiptEmail_1 = require("./app/components/email/ReceiptEmail");
 var resend = new resend_1.Resend(process.env.RESEND_API_KEY);
 var stripeWebhookHandler = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -93,7 +93,7 @@ var stripeWebhookHandler = function (req, res) { return __awaiter(void 0, void 0
             case 3:
                 orders = (_c.sent()).docs;
                 order = orders[0];
-                if (!user)
+                if (!order)
                     return [2 /*return*/, res.status(404).json({ error: 'No such order exists.' })];
                 return [4 /*yield*/, payload.update({
                         collection: 'orders',

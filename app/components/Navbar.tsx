@@ -7,7 +7,6 @@ import NavItems from '@/app/components/NavItems';
 import { getServerSideUser } from '@/lib/payload-utils';
 import Cart from './Cart';
 import { buttonVariants } from './ui/button';
-import LotusLogo from '../../public/Lotus-Filter-Logo.png';
 import UserAccountNav from './UserAccountNav';
 import MobileNav from './MobileNav';
 
@@ -26,7 +25,7 @@ const Navbar = async () => {
 							<div className='ml-4 flex lg:ml-0'>
 								<Link href='/'>
 									<Image
-										src={LotusLogo}
+										src='/Lotus-Logo'
 										alt='eCommerce logo'
 										className='h-10 w-10'
 									/>

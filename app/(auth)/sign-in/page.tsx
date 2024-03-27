@@ -7,17 +7,17 @@ import { useForm } from 'react-hook-form';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { trpc } from '@/trpc/client';
 
 import { Button, buttonVariants } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Label } from '@/app/components/ui/label';
 import { cn } from '@/lib/utils';
-import LotusLogo from '@/public/Lotus-Filter-Logo.png';
-import { trpc } from '@/trpc/client';
+
 import {
-	AuthCredentialValidator,
+	AuthCredentialsValidator,
 	TAuthCredentialsValidator,
-} from '@/lib/validators/account-credentials-validators';
+} from '@/lib/validators/account-credentials-validator';
 
 const Page = () => {
 	const searchParams = useSearchParams();
@@ -38,7 +38,7 @@ const Page = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<TAuthCredentialsValidator>({
-		resolver: zodResolver(AuthCredentialValidator),
+		resolver: zodResolver(AuthCredentialsValidator),
 	});
 
 	const { mutate: signIn, isLoading } = trpc.auth.signIn.useMutation({
@@ -77,7 +77,11 @@ const Page = () => {
 			<div className='container relative flex flex-col pt-20 items-center justify-center lg:px-0'>
 				<div className='mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]'>
 					<div className='flex flex-col items-center  text-center space-y-2'>
-						<Image src={LotusLogo} alt='eCommerce logo' className='h-16 w-16' />
+						<Image
+							src='/Lotus-Logo'
+							alt='eCommerce logo'
+							className='h-16 w-16'
+						/>
 						<h1 className='text-2xl font-bold'>
 							Sign in to your {isSeller ? 'seller' : ''} account
 						</h1>

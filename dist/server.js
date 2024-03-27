@@ -62,13 +62,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var body_parser_1 = __importDefault(require("body-parser"));
 var express_1 = __importDefault(require("express"));
 var url_1 = require("url");
+var path_1 = __importDefault(require("path"));
+var body_parser_1 = __importDefault(require("body-parser"));
 var build_1 = __importDefault(require("next/dist/build"));
-var trpcExpress = __importStar(require("@trpc/server/adapters/express"));
 var get_payload_1 = require("./get-payload");
 var next_utils_1 = require("./next-utils");
+var trpcExpress = __importStar(require("@trpc/server/adapters/express"));
 var trpc_1 = require("./trpc");
 var webhooks_1 = require("./webhooks");
 var app = (0, express_1.default)();
@@ -96,7 +97,7 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                             express: app,
                             onInit: function (cms) { return __awaiter(void 0, void 0, void 0, function () {
                                 return __generator(this, function (_a) {
-                                    cms.logger.info("Admin URL ".concat(cms.getAdminURL()));
+                                    cms.logger.info("Admin URL: ".concat(cms.getAdminURL()));
                                     return [2 /*return*/];
                                 });
                             }); },
@@ -104,7 +105,6 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                     })];
             case 1:
                 payload = _a.sent();
-                // next build
                 if (process.env.NEXT_BUILD) {
                     app.listen(PORT, function () { return __awaiter(void 0, void 0, void 0, function () {
                         return __generator(this, function (_a) {
@@ -112,16 +112,16 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                                 case 0:
                                     payload.logger.info('Next.js is building for production');
                                     // @ts-expect-error
-                                    return [4 /*yield*/, (0, build_1.default)(path.join(__dirname, '../'))];
+                                    return [4 /*yield*/, (0, build_1.default)(path_1.default.join(__dirname, '../'))];
                                 case 1:
                                     // @ts-expect-error
                                     _a.sent();
-                                    // if we are done with build close it
                                     process.exit();
                                     return [2 /*return*/];
                             }
                         });
                     }); });
+                    return [2 /*return*/];
                 }
                 cartRouter = express_1.default.Router();
                 cartRouter.use(payload.authenticate);

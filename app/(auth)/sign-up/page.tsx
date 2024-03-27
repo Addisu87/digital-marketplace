@@ -8,17 +8,16 @@ import { ArrowRight, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import { trpc } from '@/trpc/client';
 
 import { cn } from '@/lib/utils';
 import { Button, buttonVariants } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Label } from '@/app/components/ui/label';
 import {
-	AuthCredentialValidator,
+	AuthCredentialsValidator,
 	TAuthCredentialsValidator,
-} from '@/lib/validators/account-credentials-validators';
-import { trpc } from '@/trpc/client';
-import LotusLogo from '@/public/Lotus-Filter-Logo.png';
+} from '@/lib/validators/account-credentials-validator';
 
 const Page = () => {
 	const {
@@ -26,7 +25,7 @@ const Page = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<TAuthCredentialsValidator>({
-		resolver: zodResolver(AuthCredentialValidator),
+		resolver: zodResolver(AuthCredentialsValidator),
 	});
 
 	const router = useRouter();
@@ -62,7 +61,11 @@ const Page = () => {
 			<div className='container relative flex flex-col pt-20 items-center justify-center lg:px-0'>
 				<div className='mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]'>
 					<div className='flex flex-col items-center text-center space-y-2'>
-						<Image src={LotusLogo} alt='eCommerce logo' className='h-16 w-16' />
+						<Image
+							src='/Lotus-Logo'
+							alt='eCommerce logo'
+							className='h-16 w-16'
+						/>
 
 						<h1 className='text-2xl font-bold tracking-tight'>
 							Create an account

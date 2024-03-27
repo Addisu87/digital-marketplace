@@ -21,27 +21,6 @@ export const PRODUCT_CATEGORIES = [
 		],
 	},
 	{
-		label: 'Icons',
-		value: 'icons' as const,
-		featured: [
-			{
-				name: 'Favorite Icon Picks',
-				href: '#',
-				imageSrc: '/nav/icons/picks.jpg',
-			},
-			{
-				name: 'New Arrivals',
-				href: '#',
-				imageSrc: '/nav/icons/new.jpg',
-			},
-			{
-				name: 'Bestselling Icons',
-				href: '#',
-				imageSrc: '/nav/icons/bestsellers.jpg',
-			},
-		],
-	},
-	{
 		label: 'FilterSets',
 		value: 'filter_sets' as const,
 		featured: [

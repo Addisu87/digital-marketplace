@@ -2,10 +2,9 @@
 
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 import MaxWidthWrapper from './MaxWidthWrapper';
-import LotusLogo from '@/public/Lotus-Filter-Logo.png';
-import Link from 'next/link';
 
 const Footer = () => {
 	const pathname = usePathname();
@@ -19,7 +18,7 @@ const Footer = () => {
 						<div className='pb-4 pt-8'>
 							<div className='flex justify-center'>
 								<Image
-									src={LotusLogo}
+									src='/Lotus-Logo'
 									alt='eCommerce logo'
 									className='h-16 w-16'
 								/>

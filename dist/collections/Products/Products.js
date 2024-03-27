@@ -57,8 +57,8 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Products = void 0;
-var helpers_1 = require("../../helpers");
 var stripe_1 = require("../../lib/stripe");
+var helpers_1 = require("../../helpers");
 var addUser = function (_a) { return __awaiter(void 0, [_a], void 0, function (_b) {
     var user;
     var req = _b.req, data = _b.data;
@@ -218,7 +218,7 @@ exports.Products = {
         },
         {
             name: 'product_files',
-            label: 'Product_file(s)',
+            label: 'Product file(s)',
             type: 'relationship',
             required: true,
             relationTo: 'product_files',
@@ -245,7 +245,7 @@ exports.Products = {
             },
             options: [
                 {
-                    label: 'Pending Verification',
+                    label: 'Pending verification',
                     value: 'pending',
                 },
                 {

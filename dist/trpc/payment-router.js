@@ -38,15 +38,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.paymentRouter = void 0;
 var zod_1 = require("zod");
-var trpc_1 = require("./trpc");
 var server_1 = require("@trpc/server");
 var get_payload_1 = require("../get-payload");
 var stripe_1 = require("../lib/stripe");
+var trpc_1 = require("./trpc");
 exports.paymentRouter = (0, trpc_1.router)({
+    // for creating a checkout session with Stripe
     createSession: trpc_1.privateProcedure
         .input(zod_1.z.object({ productIds: zod_1.z.array(zod_1.z.string()) }))
         .mutation(function (_a) { return __awaiter(void 0, [_a], void 0, function (_b) {
-        var user, productIds, payload, products, filteredProducts, order, line_items, stripeSession, error_1;
+        var user, productIds, payload, products, filteredProducts, order, line_items, stripeSession, err_1;
         var ctx = _b.ctx, input = _b.input;
         return __generator(this, function (_c) {
             switch (_c.label) {
@@ -88,7 +89,7 @@ exports.paymentRouter = (0, trpc_1.router)({
                         });
                     });
                     line_items.push({
-                        price: 'price_1OxNBgBnQL13PbUdwWDYMokc',
+                        price: 'price_1OyZgqBnQL13PbUdCzZgN0SY',
                         quantity: 1,
                         adjustable_quantity: {
                             enabled: false,
@@ -112,12 +113,13 @@ exports.paymentRouter = (0, trpc_1.router)({
                     stripeSession = _c.sent();
                     return [2 /*return*/, { url: stripeSession.url }];
                 case 6:
-                    error_1 = _c.sent();
+                    err_1 = _c.sent();
                     return [2 /*return*/, { url: null }];
                 case 7: return [2 /*return*/];
             }
         });
     }); }),
+    // query is used to check the status of an order
     pollOrderStatus: trpc_1.privateProcedure
         .input(zod_1.z.object({ orderId: zod_1.z.string() }))
         .query(function (_a) { return __awaiter(void 0, [_a], void 0, function (_b) {

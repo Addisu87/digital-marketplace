@@ -1,18 +1,18 @@
 import { z } from 'zod';
+import { TRPCError } from '@trpc/server';
 
+import { AuthCredentialsValidator } from '../lib/validators/account-credentials-validator';
 import { publicProcedure, router } from './trpc';
 import { getPayloadClient } from '../get-payload';
-import { TRPCError } from '@trpc/server';
-import { AuthCredentialValidator } from '../lib/validators/account-credentials-validators';
 
 export const authRouter = router({
 	signUp: publicProcedure
-		.input(AuthCredentialValidator)
+		.input(AuthCredentialsValidator)
 		.mutation(async ({ input }) => {
 			const { email, password } = input;
 			const payload = await getPayloadClient();
 
-			// Check if user already exists
+			// check if user already exists
 			const { docs: users } = await payload.find({
 				collection: 'users',
 				where: {
@@ -54,10 +54,9 @@ export const authRouter = router({
 		}),
 
 	signIn: publicProcedure
-		.input(AuthCredentialValidator)
+		.input(AuthCredentialsValidator)
 		.mutation(async ({ input, ctx }) => {
 			const { email, password } = input;
-
 			const { res } = ctx;
 
 			const payload = await getPayloadClient();
@@ -73,7 +72,7 @@ export const authRouter = router({
 				});
 
 				return { success: true };
-			} catch (error) {
+			} catch (err) {
 				throw new TRPCError({ code: 'UNAUTHORIZED' });
 			}
 		}),

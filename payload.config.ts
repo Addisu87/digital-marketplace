@@ -1,6 +1,6 @@
 import path from 'path';
-import { buildConfig } from 'payload/config';
 import dotenv from 'dotenv';
+import { buildConfig } from 'payload/config';
 
 import { slateEditor } from '@payloadcms/richtext-slate';
 import { webpackBundler } from '@payloadcms/bundler-webpack';

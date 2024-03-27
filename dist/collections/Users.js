@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Users = void 0;
-var PrimaryActionEmail_1 = require("@/app/components/email/PrimaryActionEmail");
+var PrimaryActionEmail_1 = require("../app/components/email/PrimaryActionEmail");
 var adminsAndUser = function (_a) {
     var user = _a.req.user;
     if (user.role === 'admin')
