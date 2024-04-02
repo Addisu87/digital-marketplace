@@ -2314,12 +2314,12 @@
 
 "@trpc/client@^10.45.2":
   version "10.45.2"
-  resolved "https://registry.npmjs.org/@trpc/client/-/client-10.45.2.tgz"
+  resolved "https://registry.yarnpkg.com/@trpc/client/-/client-10.45.2.tgz#15f9ba81303bf3417083fc6bb742e4e86b49da90"
   integrity sha512-ykALM5kYWTLn1zYuUOZ2cPWlVfrXhc18HzBDyRhoPYN0jey4iQHEFSEowfnhg1RvYnrAVjNBgHNeSAXjrDbGwg==
 
 "@trpc/next@^10.45.2":
   version "10.45.2"
-  resolved "https://registry.npmjs.org/@trpc/next/-/next-10.45.2.tgz"
+  resolved "https://registry.yarnpkg.com/@trpc/next/-/next-10.45.2.tgz#852ce3bce9fe7114287920abd55c5cedbe5365ac"
   integrity sha512-RSORmfC+/nXdmRY1pQ0AalsVgSzwNAFbZLYHiTvPM5QQ8wmMEHilseCYMXpu0se/TbPt9zVR6Ka2d7O6zxKkXg==
 
 "@trpc/react-query@^10.45.2":
