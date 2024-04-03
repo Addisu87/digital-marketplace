@@ -52,6 +52,7 @@ export const paymentRouter = router({
 				});
 			});
 
+			// Transaction fee
 			line_items.push({
 				price: 'price_1P1VE4BnQL13PbUdWyuAeb0i',
 				quantity: 1,

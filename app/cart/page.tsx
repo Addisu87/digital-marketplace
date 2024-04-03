@@ -12,13 +12,7 @@ import { cn, formatPrice } from '@/lib/utils';
 import { Button } from '../components/ui/button';
 import { trpc } from '@/trpc/client';
 
-// Shopping cart page
 const Page = () => {
-	// remove hydration error
-	const [isMounted, setIsMounted] =
-		useState<boolean>(false);
-
-	// cart functionality
 	const { items, removeItem } = useCart();
 
 	const router = useRouter();
@@ -34,6 +28,9 @@ const Page = () => {
 	const productIds = items.map(({ product }) => product.id);
 
 	// Remove hydration error
+	const [isMounted, setIsMounted] =
+		useState<boolean>(false);
+
 	useEffect(() => {
 		setIsMounted(true);
 	}, []);
@@ -177,7 +174,6 @@ const Page = () => {
 						</ul>
 					</div>
 
-					{/* Checkout */}
 					<section className='mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8'>
 						<h2 className='text-lg font-medium text-gray-900'>
 							Order summary
