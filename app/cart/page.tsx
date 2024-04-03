@@ -15,7 +15,8 @@ import { trpc } from '@/trpc/client';
 // Shopping cart page
 const Page = () => {
 	// remove hydration error
-	const [isMounted, setIsMounted] = useState<boolean>(false);
+	const [isMounted, setIsMounted] =
+		useState<boolean>(false);
 
 	// cart functionality
 	const { items, removeItem } = useCart();
@@ -60,7 +61,9 @@ const Page = () => {
 								isMounted && items.length === 0,
 						})}
 					>
-						<h2 className='sr-only'>Items in your shopping cart</h2>
+						<h2 className='sr-only'>
+							Items in your shopping cart
+						</h2>
 
 						{isMounted && items.length === 0 ? (
 							<div className='flex h-full flex-col items-center justify-center space-y-1'>
@@ -75,7 +78,9 @@ const Page = () => {
 										alt='empty shopping cart hippo'
 									/>
 								</div>
-								<h3 className='font-semibold text-2xl'>Your cart is empty</h3>
+								<h3 className='font-semibold text-2xl'>
+									Your cart is empty
+								</h3>
 								<p className='text-muted-foreground text-center'>
 									Whoops! Nothing to show here yet.
 								</p>
@@ -97,10 +102,14 @@ const Page = () => {
 									const { image } = product.images[0];
 
 									return (
-										<li key={product.id} className='flex py-6 sm:py-10'>
+										<li
+											key={product.id}
+											className='flex py-6 sm:py-10'
+										>
 											<div className='flex-shrink-0'>
 												<div className='relative h-24 w-24'>
-													{typeof image !== 'string' && image.url ? (
+													{typeof image !== 'string' &&
+													image.url ? (
 														<Image
 															fill
 															src={image.url}
@@ -140,10 +149,15 @@ const Page = () => {
 														<div className='absolute right-0 top-0'>
 															<Button
 																aria-label='remove product'
-																onClick={() => removeItem(product.id)}
+																onClick={() =>
+																	removeItem(product.id)
+																}
 																variant='ghost'
 															>
-																<X className='h-5 w-5' aria-hidden='true' />
+																<X
+																	className='h-5 w-5'
+																	aria-hidden='true'
+																/>
 															</Button>
 														</div>
 													</div>
@@ -152,7 +166,9 @@ const Page = () => {
 												<p className='mt-4 flex space-x-2 text-sm text-gray-700'>
 													<Check className='h-5 w-5 flex-shrink-0 text-green-500' />
 
-													<span>Eligible for instant delivery</span>
+													<span>
+														Eligible for instant delivery
+													</span>
 												</p>
 											</div>
 										</li>
@@ -162,12 +178,16 @@ const Page = () => {
 					</div>
 
 					{/* Checkout */}
-					<section className='mt-16 rounded-lg bg-zinc-100 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8'>
-						<h2 className='text-lg font-medium text-gray-900'>Order summary</h2>
+					<section className='mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8'>
+						<h2 className='text-lg font-medium text-gray-900'>
+							Order summary
+						</h2>
 
 						<div className='mt-6 space-y-4'>
 							<div className='flex items-center justify-between'>
-								<p className='text-sm text-gray-600'>Subtotal</p>
+								<p className='text-sm text-gray-600'>
+									Subtotal
+								</p>
 								<p className='text-sm font-medium text-gray-900'>
 									{isMounted ? (
 										formatPrice(cartTotal)
@@ -178,9 +198,9 @@ const Page = () => {
 							</div>
 
 							<div className='flex items-center justify-between border-t border-gray-200 pt-4'>
-								<p className='flex items-center text-sm text-gray-600'>
-									Flat Transaction Fee
-								</p>
+								<div className='flex items-center text-sm text-muted-foreground'>
+									<span>Flat Transaction Fee</span>
+								</div>
 								<div className='text-sm font-medium text-gray-900'>
 									{isMounted ? (
 										formatPrice(fee)
@@ -207,7 +227,9 @@ const Page = () => {
 						<div className='mt-6'>
 							<Button
 								disabled={items.length === 0 || isLoading}
-								onClick={() => createCheckoutSession({ productIds })}
+								onClick={() =>
+									createCheckoutSession({ productIds })
+								}
 								className='w-full'
 								size='lg'
 							>
