@@ -3,8 +3,8 @@ import { z } from 'zod';
 import { TRPCError } from '@trpc/server';
 
 import { getPayloadClient } from '../get-payload';
-import { stripe } from '../lib/stripe';
 import { privateProcedure, router } from './trpc';
+import { stripe } from '../lib/stripe';
 
 export const paymentRouter = router({
 	// for creating a checkout session with Stripe
@@ -53,7 +53,7 @@ export const paymentRouter = router({
 			});
 
 			line_items.push({
-				price: 'price_1P1TjMBnQL13PbUdVluy0gBE',
+				price: 'price_1P1VE4BnQL13PbUdWyuAeb0i',
 				quantity: 1,
 				adjustable_quantity: {
 					enabled: false,
@@ -74,8 +74,14 @@ export const paymentRouter = router({
 						line_items,
 					});
 
+				// Return the session URL if creation is successful
 				return { url: stripeSession.url };
 			} catch (err) {
+				// Log or handle the error more explicitly
+				console.error(
+					'Error creating Stripe session:',
+					err,
+				);
 				return { url: null };
 			}
 		}),

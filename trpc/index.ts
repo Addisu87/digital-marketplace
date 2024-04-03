@@ -24,7 +24,10 @@ export const appRouter = router({
 
 			const payload = await getPayloadClient();
 
-			const parsedQueryOpts: Record<string, { equals: string }> = {};
+			const parsedQueryOpts: Record<
+				string,
+				{ equals: string }
+			> = {};
 
 			Object.entries(queryOpts).forEach(([key, value]) => {
 				parsedQueryOpts[key] = {
