@@ -4,7 +4,7 @@ import {
 	persist,
 } from 'zustand/middleware';
 
-import { Product } from '../payload-types';
+import { Product } from '@/payload-types';
 
 export type CartItem = {
 	product: Product;
@@ -21,7 +21,6 @@ export const useCart = create<CartState>()(
 	persist(
 		(set) => ({
 			items: [],
-
 			addItem: (product) =>
 				set((state) => {
 					return { items: [...state.items, { product }] };
