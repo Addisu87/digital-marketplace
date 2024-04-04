@@ -1,5 +1,8 @@
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
+import {
+	createJSONStorage,
+	persist,
+} from 'zustand/middleware';
 
 import { Product } from '../payload-types';
 
@@ -18,13 +21,17 @@ export const useCart = create<CartState>()(
 	persist(
 		(set) => ({
 			items: [],
+
 			addItem: (product) =>
 				set((state) => {
 					return { items: [...state.items, { product }] };
 				}),
+
 			removeItem: (id) =>
 				set((state) => ({
-					items: state.items.filter((item) => item.product.id !== id),
+					items: state.items.filter(
+						(item) => item.product.id !== id,
+					),
 				})),
 
 			clearCart: () => set({ items: [] }),

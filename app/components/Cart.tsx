@@ -21,7 +21,8 @@ import { ScrollArea } from './ui/scroll-area';
 import CartItem from './CartItem';
 
 const Cart = () => {
-	const [isMounted, setIsMounted] = useState<boolean>(false);
+	const [isMounted, setIsMounted] =
+		useState<boolean>(false);
 
 	const { items } = useCart();
 	const itemCount = items.length;
@@ -57,7 +58,10 @@ const Cart = () => {
 						<div className='flex w-full flex-col pr-6'>
 							<ScrollArea>
 								{items.map(({ product }) => (
-									<CartItem product={product} key={product.id} />
+									<CartItem
+										product={product}
+										key={product.id}
+									/>
 								))}
 							</ScrollArea>
 						</div>
@@ -69,12 +73,16 @@ const Cart = () => {
 									<span>Free</span>
 								</div>
 								<div className='flex'>
-									<span className='flex-1'>Transaction Fee</span>
+									<span className='flex-1'>
+										Transaction Fee
+									</span>
 									<span>{formatPrice(fee)}</span>
 								</div>
 								<div className='flex'>
 									<span className='flex-1'>Total</span>
-									<span>{formatPrice(cartTotal + fee)}</span>
+									<span>
+										{formatPrice(cartTotal + fee)}
+									</span>
 								</div>
 							</div>
 
@@ -104,14 +112,17 @@ const Cart = () => {
 								alt='empty shopping cart'
 							/>
 						</div>
-						<div className='text-xl font-semibold'>Your cart is empty</div>
+						<div className='text-xl font-semibold'>
+							Your cart is empty
+						</div>
 						<SheetTrigger asChild>
 							<Link
 								href='/products'
 								className={buttonVariants({
 									variant: 'link',
 									size: 'sm',
-									className: 'text-sm text-muted-foreground',
+									className:
+										'text-sm text-muted-foreground',
 								})}
 							>
 								Add items to your cart to checkout

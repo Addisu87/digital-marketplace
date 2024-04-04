@@ -47,7 +47,9 @@ const CartItem = ({ product }: { product: Product }) => {
 						</span>
 
 						<div className='mt-4 text-xs text-muted-foreground'>
-							<button onClick={() => removeItem(product.id)}>
+							<button
+								onClick={() => removeItem(product.id)}
+							>
 								<X className='w-3 h-4' />
 								Remove
 							</button>

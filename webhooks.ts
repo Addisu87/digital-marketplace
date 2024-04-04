@@ -31,16 +31,24 @@ export const stripeWebhookHandler = async (
 			.status(400)
 			.send(
 				`Webhook Error: ${
-					err instanceof Error ? err.message : 'Unknown Error'
+					err instanceof Error
+						? err.message
+						: 'Unknown Error'
 				}`,
 			);
 	}
 
-	const session = event.data.object as Stripe.Checkout.Session;
+	const session = event.data
+		.object as Stripe.Checkout.Session;
 
 	// update the _isPaid value of this order
-	if (!session?.metadata?.userId || !session?.metadata?.orderId) {
-		return res.status(400).send(`Webhook Error: No user present in metadata`);
+	if (
+		!session?.metadata?.userId ||
+		!session?.metadata?.orderId
+	) {
+		return res
+			.status(400)
+			.send(`Webhook Error: No user present in metadata`);
 	}
 
 	if (event.type === 'checkout.session.completed') {
@@ -57,7 +65,10 @@ export const stripeWebhookHandler = async (
 
 		const [user] = users;
 
-		if (!user) return res.status(404).json({ error: 'No such user exists.' });
+		if (!user)
+			return res
+				.status(404)
+				.json({ error: 'No such user exists.' });
 
 		const { docs: orders } = await payload.find({
 			collection: 'orders',
@@ -71,7 +82,10 @@ export const stripeWebhookHandler = async (
 
 		const [order] = orders;
 
-		if (!order) return res.status(404).json({ error: 'No such order exists.' });
+		if (!order)
+			return res
+				.status(404)
+				.json({ error: 'No such order exists.' });
 
 		await payload.update({
 			collection: 'orders',
@@ -90,7 +104,8 @@ export const stripeWebhookHandler = async (
 			const data = await resend.emails.send({
 				from: 'DigitalMarketPlace <addisuhaile87@gmail.com>',
 				to: [user.email],
-				subject: 'Thanks for your order! This is your receipt.',
+				subject:
+					'Thanks for your order! This is your receipt.',
 				html: ReceiptEmailHtml({
 					date: new Date(),
 					email: user.email,
