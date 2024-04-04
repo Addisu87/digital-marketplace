@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { Check, Loader2, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, Loader2, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-import { PRODUCT_CATEGORIES } from '@/helpers';
 import { useCart } from '@/hooks/use-cart';
 import { cn, formatPrice } from '@/lib/utils';
+import { trpc } from '../../trpc/client';
+import { PRODUCT_CATEGORIES } from '@/helpers';
 import { Button } from '../components/ui/button';
-import { trpc } from '@/trpc/client';
 
 const Page = () => {
 	const { items, removeItem } = useCart();
@@ -30,7 +30,6 @@ const Page = () => {
 	// Remove hydration error
 	const [isMounted, setIsMounted] =
 		useState<boolean>(false);
-
 	useEffect(() => {
 		setIsMounted(true);
 	}, []);

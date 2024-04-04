@@ -54,7 +54,7 @@ export const paymentRouter = router({
 
 			// Transaction fee
 			line_items.push({
-				price: 'price_1P1VE4BnQL13PbUdWyuAeb0i',
+				price: 'price_1P1qHKFnJPipKlpGoPVcHHRg',
 				quantity: 1,
 				adjustable_quantity: {
 					enabled: false,
@@ -77,12 +77,13 @@ export const paymentRouter = router({
 
 				// Return the session URL if creation is successful
 				return { url: stripeSession.url };
-			} catch (err) {
+			} catch (error) {
 				// Log or handle the error more explicitly
 				console.error(
 					'Error creating Stripe session:',
-					err,
+					error,
 				);
+				console.log('error', error);
 				return { url: null };
 			}
 		}),

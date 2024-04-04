@@ -1,6 +1,6 @@
 # Digital marketplace - A Modern Fullstack E-commerce Marketplace for Digital Products
 
-Built with the Next.js 14 App router, tRPC, TypeScript, Payload and Tailwind
+A Modern Fullstack E-commerce Marketplace for Digital Products. It built with the Next.js 14 App router, tRPC, TypeScript, PayloadCMS and TailwindCss.
 
 ![Project Image](https://github.com/Addisu87/digital-marketplace/blob/main/public/thumbnail.jpg)
 
