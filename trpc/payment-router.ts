@@ -33,6 +33,10 @@ export const paymentRouter = router({
 				Boolean(prod.priceId),
 			);
 
+			if (filteredProducts.length === 0) {
+				throw new Error('No valid product found');
+			}
+
 			const order = await payload.create({
 				collection: 'orders',
 				data: {
@@ -83,7 +87,6 @@ export const paymentRouter = router({
 					'Error creating Stripe session:',
 					error,
 				);
-				console.log('error', error);
 				return { url: null };
 			}
 		}),
