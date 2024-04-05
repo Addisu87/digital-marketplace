@@ -9,11 +9,11 @@ dotenv.config({
 });
 
 const transporter = nodemailer.createTransport({
-	host: 'smtp.resend.com',
+	host: process.env.EMAIL_SERVER_HOST,
 	secure: true,
-	port: 465,
+	port: Number(process.env.EMAIL_SERVER_PORT) || 465,
 	auth: {
-		user: 'resend',
+		user: process.env.EMAIL_SERVER_USER,
 		pass: process.env.RESEND_API_KEY,
 	},
 });
