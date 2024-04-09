@@ -6,17 +6,17 @@ export const PRODUCT_CATEGORIES = [
 			{
 				name: 'Editor picks',
 				href: '#',
-				imageSrc: '/nav/ui-kits/mixed.jpg',
+				imageSrc: '/nav/icons/electric.jpg',
 			},
 			{
 				name: 'New Arrivals',
 				href: '#',
-				imageSrc: '/nav/ui-kits/blue.jpg',
+				imageSrc: '/nav/icons/best-seller.jpg',
 			},
 			{
 				name: 'Best Sellers',
 				href: '#',
-				imageSrc: '/nav/ui-kits/purple.jpg',
+				imageSrc: '/nav/icons/black-friday.jpg',
 			},
 		],
 	},
