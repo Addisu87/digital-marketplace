@@ -70,7 +70,7 @@ const start = () => __awaiter(void 0, void 0, void 0, function* () {
         app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
             payload.logger.info('Next.js is building for production');
             // @ts-expect-error
-            yield (0, build_1.default)(path_1.default.join(__dirname, './'));
+            yield (0, build_1.default)(path_1.default.join(__dirname, '../'));
             process.exit();
         }));
         return;
