@@ -61,7 +61,7 @@ const start = async () => {
 			);
 
 			// @ts-expect-error
-			await nextBuild(path.join(__dirname, '../'));
+			await nextBuild(path.join(__dirname, './'));
 
 			process.exit();
 		});
