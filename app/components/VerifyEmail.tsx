@@ -11,7 +11,9 @@ interface VerifyEmailProps {
 	token: string;
 }
 
-const VerifyEmail = ({ token }: VerifyEmailProps) => {
+const VerifyEmail: React.FC<VerifyEmailProps> = ({
+	token,
+}) => {
 	const { data, isLoading, isError } =
 		trpc.auth.verifyEmail.useQuery({
 			token,
@@ -38,7 +40,7 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
 				<div className='relative mb-4 h-60 w-60 text-muted-foreground'>
 					<Image
 						src='/hippo-email-sent.png'
-						fill
+						layout='fill'
 						alt='Email sent'
 					/>
 				</div>
