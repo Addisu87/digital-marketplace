@@ -99,7 +99,7 @@ export const stripeWebhookHandler = async (
 			},
 		});
 
-		// send receipt
+		// send receipt to user
 		try {
 			const data = await resend.emails.send({
 				from: 'DigitalMarketPlace <onboarding@resend.dev>',
