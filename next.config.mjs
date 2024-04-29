@@ -4,7 +4,7 @@ const nextConfig = {
 		formats: ['image/avif', 'image/webp'],
 		remotePatterns: [
 			{
-				hostname: 'localhost',
+				hostname: '*',
 				protocol: 'http',
 			},
 		],
