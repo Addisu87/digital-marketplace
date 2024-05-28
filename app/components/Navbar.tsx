@@ -25,7 +25,11 @@ const Navbar = async () => {
 							<div className='ml-4 flex lg:ml-0'>
 								<div className='relative w-10 h-10 text-muted-foreground'>
 									<Link href='/'>
-										<Image src='/Lotus-Logo.png' alt='eCommerce logo' fill />
+										<Image
+											src='/online-shop-logo.jpg'
+											alt='eCommerce logo'
+											fill
+										/>
 									</Link>
 								</div>
 							</div>
@@ -39,14 +43,19 @@ const Navbar = async () => {
 									{user ? null : (
 										<Link
 											href='/sign-in'
-											className={buttonVariants({ variant: 'ghost' })}
+											className={buttonVariants({
+												variant: 'ghost',
+											})}
 										>
 											Sign in
 										</Link>
 									)}
 
 									{user ? null : (
-										<span className='h-6 w-px bg-gray-200' aria-hidden='true' />
+										<span
+											className='h-6 w-px bg-gray-200'
+											aria-hidden='true'
+										/>
 									)}
 
 									{user ? (
@@ -54,14 +63,19 @@ const Navbar = async () => {
 									) : (
 										<Link
 											href='/sign-up'
-											className={buttonVariants({ variant: 'ghost' })}
+											className={buttonVariants({
+												variant: 'ghost',
+											})}
 										>
 											Register
 										</Link>
 									)}
 
 									{user ? (
-										<span className='h-6 w-px bg-gray-200' aria-hidden='true' />
+										<span
+											className='h-6 w-px bg-gray-200'
+											aria-hidden='true'
+										/>
 									) : null}
 
 									{user ? null : (

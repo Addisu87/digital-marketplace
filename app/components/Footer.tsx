@@ -8,7 +8,11 @@ import MaxWidthWrapper from './MaxWidthWrapper';
 
 const Footer = () => {
 	const pathname = usePathname();
-	const pathToMinimize = ['/sign-in', '/sign-up', '/verify-email'];
+	const pathToMinimize = [
+		'/sign-in',
+		'/sign-up',
+		'/verify-email',
+	];
 
 	return (
 		<footer className='bg-white flex-grow-0'>
@@ -18,7 +22,11 @@ const Footer = () => {
 						<div className='pb-4 pt-8'>
 							<div className='flex justify-center'>
 								<div className='relative w-16 h-16 text-muted-foreground'>
-									<Image src='/Lotus-Logo.png' alt='eCommerce logo' fill />
+									<Image
+										src='/online-shop-logo.jpg'
+										alt='eCommerce logo'
+										fill
+									/>
 								</div>
 							</div>
 						</div>
@@ -39,8 +47,9 @@ const Footer = () => {
 										Become a seller
 									</h3>
 									<p className='mt-2 text-sm text-muted-foreground'>
-										If you&apos;d like to sell high-quality digital products,
-										you can do so in minutes.{' '}
+										If you&apos;d like to sell high-quality
+										digital products, you can do so in
+										minutes.{' '}
 										<Link
 											href='/sign-in?as=seller'
 											className='whitespace-nowrap font-medium text-black hover:text-zinc-900'
@@ -57,7 +66,8 @@ const Footer = () => {
 				<div className='py-4 md:flex md:items-center md:justify-between'>
 					<div className='text-center md:text-left'>
 						<p className='text-sm text-muted-foreground'>
-							&copy; {new Date().getFullYear()} All Rights Reserved
+							&copy; {new Date().getFullYear()} All Rights
+							Reserved
 						</p>
 					</div>
 
