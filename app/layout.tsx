@@ -1,4 +1,4 @@
-import { Nunito_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { Toaster } from 'sonner';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -9,10 +9,10 @@ import Providers from './components/Providers';
 
 import './globals.css';
 
-const NunitoSans = Nunito_Sans({
+const inter = Inter({
 	weight: ['400', '700'],
 	subsets: ['latin'],
-	style: ['normal', 'italic'],
+	style: ['normal'],
 	display: 'swap',
 });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
 			<body
 				className={cn(
 					'relative h-full font-sans antialiased',
-					NunitoSans.className,
+					inter.className,
 				)}
 			>
 				<main className='relative flex flex-col min-h-screen'>
